@@ -1,0 +1,50 @@
+{
+  "name": "nuber-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jinseoplee/nuber-server.git",
+  "author": "Lee Jinseop <js428118@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/cors": "^2.8.6",
+    "@types/helmet": "^0.0.44",
+    "@types/morgan": "^1.7.37",
+    "@types/node": "^12.7.12",
+    "@typescript-eslint/eslint-plugin": "^2.4.0",
+    "@typescript-eslint/parser": "^2.4.0",
+    "babel-runtime": "^6.26.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "gql-merge": "^0.0.6",
+    "graphql-to-typescript": "^0.1.2",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.18.2",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "class-validator": "^0.10.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "graphql-tools": "^4.0.5",
+    "graphql-yoga": "^1.18.3",
+    "helmet": "^3.21.1",
+    "merge-graphql-schemas": "^1.7.0",
+    "morgan": "^1.9.1",
+    "pg": "^7.12.1",
+    "typeorm": "^0.2.19"
+  },
+  "scripts": {
+    "predev": "yarn types",
+    "dev": "nodemon --exec ts-node src/index.ts -e ts,graphql",
+    "format": "prettier --write 'src/**/*.{ts,tsx}'",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --quiet",
+    "lint:fix": "yarn lint --fix",
+    "pretypes": "gql-merge --out-file ./src/schema.graphql ./src/api/**/*.graphql",
+    "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts"
+  }
+}
